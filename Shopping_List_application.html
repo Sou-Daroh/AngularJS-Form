@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shopping List</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+  <style>
+        body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    form {
+      margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+      padding: 8px;
+      width: 200px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 8px 12px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    li button {
+      padding: 4px 8px;
+      font-size: 12px;
+      background-color: #f44336;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    li button:hover {
+      background-color: #d32f2f;
+    }
+  </style>
+
+</head>
+<body ng-controller="ShoppingController" ng-app="shoppingApp">
+  <h1>My Shopping List</h1>
+  
+  <form ng-submit="addItem()">
+    <input type="text" ng-model="newItem" placeholder="Add an item">
+    <button type="submit">Add</button>
+  </form>
+  
+  <ul>
+    <li ng-repeat="item in shoppingItems">
+      {{ item }}
+      <button ng-click="removeItem($index)">Remove</button>
+    </li>
+  </ul>
+
+  <script>
+        angular.module('shoppingApp', [])
+            .controller('ShoppingController', function($scope) {
+            $scope.shoppingItems = []; 
+    
+    
+        $scope.addItem = function() {
+            if ($scope.newItem) {
+            $scope.shoppingItems.push($scope.newItem);
+            $scope.newItem = ''; 
+      }
+    };
+    
+        $scope.removeItem = function(index) {
+            $scope.shoppingItems.splice(index, 1);
+    };
+  });
+
+  </script>
+</body>
+</html>

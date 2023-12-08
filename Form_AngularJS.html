@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
+
+    <h1>Form</h1>
+
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <form>
+        First Name: <input type="text" ng-model="firstName" placeholder="John"><br><br>
+
+        Last Name: <input type="text" ng-model="lastName"><br><br>
+
+        Date of Birth: <input type="date" ng-model="dateOfBirth"><br><br>
+
+        Age: <input type="number" ng-model="age"><br><br>
+
+        <form name="myForm">
+            Email Address: <input type="email" name="myAddress" ng-model="email"><br><br>
+            <span ng-show="myForm.myAddress.$error.email">Not a valid e-mail address</span><br><br>
+        </form>
+
+        Phone Number: <input type="tel" ng-model="phoneNumber"><br><br>
+
+        <br>
+        Full Name: {{ firstName + ' ' + lastName }} <br><br>
+        Date of Birth: {{ dateOfBirth }} <br><br>   
+        Phone Number: {{phoneNumber}} <br><br>
+        Email Address: {{email}} <br><br>
+        Age: {{age}} <br><br>
+
+        <button type="submit" ng-click="submitForm()">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('myCtrl', function($scope) {
+            $scope.firstName = "";
+            $scope.lastName = "";
+            $scope.dateOfBirth = "";
+            $scope.email = "";
+            $scope.age ="";
+            $scope.phoneNumber = "";
+
+        });
+    </script>
+</body>
+</html>

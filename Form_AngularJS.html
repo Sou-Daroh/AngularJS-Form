@@ -12,18 +12,18 @@
         <form name="myForm">
         First Name: <input type="text" ng-model="firstName" placeholder="John"><br><br>
 
-        Last Name: <input type="text" ng-model="lastName"><br><br>
+        Last Name: <input type="text" ng-model="lastName" placeholder="Doe"><br><br>
 
         Date of Birth: <input type="date" ng-model="dateOfBirth"><br><br>
 
         Age: <input type="number" ng-model="age"><br><br>
 
         <form name="myForm">
-            Email Address: <input type="email" name="myAddress" ng-model="email"><br><br>
+            Email Address: <input type="email" name="myAddress" ng-model="email" placeholder="example@gmail.com"><br><br>
             <span ng-show="myForm.myAddress.$error.email">Not a valid e-mail address</span><br><br>
         </form>
 
-        Phone Number: <input type="tel" ng-model="phoneNumber"><br><br>
+        Phone Number: <input type="tel" ng-model="phoneNumber" placeholder="0123456789"><br><br>
 
         <br>
         Full Name: {{ firstName + ' ' + lastName }} <br><br>
